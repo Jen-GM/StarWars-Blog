@@ -1,21 +1,21 @@
 import React from "react";
-import icono from "../pictures/starwarsNavbar.png";
 
-function CardPlanets(props) {
+
+function CardPlanets({ picturePla, name, population, terrain, agregarFavorito }) {
   return (
     <div className="card" style={{ maxWidth: 300 }}>
-      <img src={icono} className="card-img-top" />
+      <img src={picturePla} className="card-img-top" />
       <div className="card-body">
-        <h4 className="card-title"><strong>Nombre</strong></h4>
+        <h4 className="card-title"><strong>{name}</strong></h4>
         <p className="card-gender">
-          Population: <br />
-          Terrain:
+          Population: {population} <br />
+          Terrain: {terrain}
         </p>
         <div className="two-buttons d-flex justify-content-between">
           <a href="#" className="btn btn-outline-primary fs-5">
             Learn more!
           </a>
-          <a href="#" className="btn btn-outline-warning fs-5">
+          <a href="#" className="btn btn-outline-warning fs-5" onClick={agregarFavorito}>
             ♡
           </a>
         </div>

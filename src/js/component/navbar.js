@@ -8,16 +8,6 @@ export const Navbar = ({ array, borrarFav }) => {
 
   console.log(printArray);
 
- /*  const favoritesDropDown = () => {
-      if(counter === 0){
-        (Empty)
-      }else{
-        array.forEach(element => {
-          element <i className="fa-solid fa-trash ps-3" style={{ border: 0 }} onClick={borrarFav}></i>
-        });
-
-  } arreglar esto con el código de la calcu? o del todo? */
-
   return (
     <nav className="navbar navbar-light bg-light mb-4">
       <Link to="/">
@@ -39,7 +29,13 @@ export const Navbar = ({ array, borrarFav }) => {
           <ul className="dropdown-menu">
             <li>
               <a className="dropdown-item" href="#">
-              {/* Agregar lo que va en el dropdown */}
+              {`${
+                counter
+                  ? array.forEach(element => {
+                    element + <i className="fa-solid fa-trash ps-3" style={{ border: 0 }} onClick={borrarFav}></i>
+              })
+                  : "(Empty)"
+              }`}
               </a>
             </li>
           </ul>

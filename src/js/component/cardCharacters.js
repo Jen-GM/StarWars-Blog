@@ -1,25 +1,25 @@
 import React from "react";
 import icono from "../pictures/starwarsNavbar.png";
 
-function CardCharacters(props) {
+function CardCharacters({ picture, name, gender, hairColor, eyeColor, agregarFavorito }) {
   return (
     <div className="card" style={{ maxWidth: 300 }}>
-      <img src={icono} className="card-img-top" />
+      <img src={picture} className="card-img-top" />
       <div className="card-body">
         <h4 className="card-title">
-          <strong>{props.name}</strong>
+          <strong>{name}</strong>
         </h4>
         <p className="card-gender">
-          Gender: {props.gender}
+          Gender: {gender}
           <br />
-          Hair Color: {props.hairColor} <br />
-          Eye-Color: {props.eyeColor}
+          Hair Color: {hairColor} <br />
+          Eye-Color: {eyeColor}
         </p>
         <div className="two-buttons d-flex justify-content-between">
           <a href="/information" className="btn btn-outline-primary fs-5">
             Learn more!
           </a>
-          <a href="#" className="btn btn-outline-warning fs-5">
+          <a href="#" className="btn btn-outline-warning fs-5" onClick={agregarFavorito}>
             ♡
           </a>
         </div>
