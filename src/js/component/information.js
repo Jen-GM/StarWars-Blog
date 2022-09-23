@@ -9,7 +9,7 @@ function Information(props) {
       <div className="container">
         <div className="d-grid gap-2 d-md-flex justify-content-md-end">
           <button className="btn btn-outline-secondary btn-sm float-right">
-          Return <i className="fa-solid fa-hand-point-left"></i>
+            Return <i className="fa-solid fa-hand-point-left"></i>
           </button>
         </div>
       </div>
@@ -37,7 +37,7 @@ function Information(props) {
             <div className="col-md-8">
               <div className="card-body">
                 <h3 className="card-title text-center p-3">
-                  <strong>Name</strong>
+                  <strong>{props.name}</strong>
                 </h3>
                 <p className="card-text text-center">
                   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
@@ -65,12 +65,12 @@ function Information(props) {
           </thead>
           <tbody>
             <tr className="text-danger">
-              <td>Name</td>
-              <td>Year</td>
-              <td>gender</td>
-              <td>Height</td>
-              <td>skincolor</td>
-              <td>eycol</td>
+              <td>{props.name}</td>
+              <td>{props.birthYear}</td>
+              <td>{props.gender}</td>
+              <td>{props.height}</td>
+              <td>{props.skinColor}</td>
+              <td>{props.eyeColor}</td>
             </tr>
           </tbody>
         </table>

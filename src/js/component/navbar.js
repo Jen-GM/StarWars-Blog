@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import icono from "../pictures/starwarsIcon.png";
 
-export const Navbar = () => {
+export const Navbar = ({ array, borrarFav }) => {
   let counter = 0;
+  const printArray = array;
+
+  console.log(printArray);
 
   return (
     <nav className="navbar navbar-light bg-light mb-4">
@@ -21,7 +24,7 @@ export const Navbar = () => {
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            Favorites {counter}
+            Favorites <span className="bg-secondary">{counter}</span>
           </button>
           <ul className="dropdown-menu">
             <li>
