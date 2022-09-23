@@ -3,10 +3,20 @@ import { Link } from "react-router-dom";
 import icono from "../pictures/starwarsIcon.png";
 
 export const Navbar = ({ array, borrarFav }) => {
-  let counter = 0;
+  let counter = array.length;
   const printArray = array;
 
   console.log(printArray);
+
+ /*  const favoritesDropDown = () => {
+      if(counter === 0){
+        (Empty)
+      }else{
+        array.forEach(element => {
+          element <i className="fa-solid fa-trash ps-3" style={{ border: 0 }} onClick={borrarFav}></i>
+        });
+
+  } arreglar esto con el código de la calcu? o del todo? */
 
   return (
     <nav className="navbar navbar-light bg-light mb-4">
@@ -29,8 +39,7 @@ export const Navbar = ({ array, borrarFav }) => {
           <ul className="dropdown-menu">
             <li>
               <a className="dropdown-item" href="#">
-                (Empty)
-                <i className="fa-solid fa-trash ps-3" style={{ border: 0 }}></i>
+              {/* Agregar lo que va en el dropdown */}
               </a>
             </li>
           </ul>
