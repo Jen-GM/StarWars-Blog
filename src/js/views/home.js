@@ -5,45 +5,38 @@ import CardCharacters from "../component/cardCharacters";
 import CardPlanets from "../component/cardPlanets";
 
 export const Home = () => {
-  let url = "https://www.swapi.tech/api/people/";
-  let personajes = {};
-  let planetas = {};
+  const [personajes, setPersonajes] = useState([]);
+  const [planetas, setPlanetas] = useState([]);
   const [favoritos, setFavoritos] = useState([]);
 
   //Funcion para obtener los 10 objetos de personaje.
   const getCards = () => {
     //Pasar esto para cards
-    for (var i = 1; i < 11; i++) {
-      fetch(url + i)
-        .then((res) => res.json())
-        .then((data) => {
-          personajes = data.result.properties;
-          console.log(personajes);
-        })
-        .catch((err) => console.error(err));
-    }
-    return personajes;
+    fetch("https://www.swapi.tech/api/people/")
+      .then((res) => res.json())
+      .then((data) => {
+        setPersonajes(data.results);
+      })
+      .catch((err) => console.error(err));
   };
 
   //Funcion para obtener los 10 objetos de personaje.
   const getPlanets = () => {
     //Pasar esto para cards
-    for (var i = 1; i < 11; i++) {
-      fetch("https://www.swapi.tech/api/planets/" + i)
-        .then((res) => res.json())
-        .then((data) => {
-          planetas = data.result.properties;
-          console.log(planetas);
-        })
-        .catch((err) => console.error(err));
-    }
-    return planetas;
+    fetch("https://www.swapi.tech/api/planets/")
+      .then((res) => res.json())
+      .then((data) => {
+        setPlanetas(data.results);
+      })
+      .catch((err) => console.error(err));
   };
 
   useEffect(() => {
     getCards();
     getPlanets();
   }, []);
+
+  console.log(personajes, planetas);
 
   /* Funciones generales: Navbar:ver favoritos**, eliminar favoritos**, Card: redireccionar, agregar favoritos**, Information: regresar.  */
 
@@ -68,14 +61,21 @@ export const Home = () => {
         </div>
         <div className="row row-cols-1 row-cols-md-6 g-4 overflow-auto">
           <div className="col">
-            <CardCharacters
-              picture=""
-              name=""
-              gender=""
-              hairColor=""
-              eyeColor=""
-              agregarFavorito={agregarFav}
-            />
+            {personajes.map((element, i) => {
+              return (
+                <CardCharacters
+                  id={element.uid}
+                  picture=""
+                  name={element.name}
+                  gender={element.gender}
+                  hairColor={element.hairColor}
+                  eyeColor={element.eyeColor}
+                  agregarFavorito={agregarFav}
+                  key={i}
+                />
+              );
+            })}
+            ;
           </div>
         </div>
         <div className="text-left m-5">
@@ -83,13 +83,20 @@ export const Home = () => {
         </div>
         <div className="row row-cols-1 row-cols-md-6 g-4">
           <div className="col">
-            <CardPlanets
-              picturePla=""
-              name=""
-              population=""
-              terrain=""
-              agregarFavorito={agregarFav}
-            />
+            {planetas.map((element, i) => {
+              return (
+                <CardPlanets
+                  id={element.uid}
+                  picturePla=""
+                  name={element.name}
+                  population={element.population}
+                  terrain={element.terrain}
+                  agregarFavorito={agregarFav}
+                  key={i}
+                />
+              );
+            })}
+            ;
           </div>
         </div>
       </div>
