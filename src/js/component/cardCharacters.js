@@ -3,7 +3,7 @@ import icono from "../pictures/starwarsNavbar.png";
 
 function CardCharacters({ picture, name, gender, hairColor, eyeColor, agregarFavorito }) {
   return (
-    <div className="card" >
+    <div className="container-fluid px-5" >
       <img src={picture} className="card-img-top" />
       <div className="card-body">
         <h4 className="card-title">

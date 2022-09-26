@@ -3,7 +3,7 @@ import React from "react";
 
 function CardPlanets({ picturePla, name, population, terrain, agregarFavorito }) {
   return (
-    <div className="card" style={{ maxWidth: 300 }}>
+    <div className="container-fluid px-5" >
       <img src={picturePla} className="card-img-top" />
       <div className="card-body">
         <h4 className="card-title"><strong>{name}</strong></h4>

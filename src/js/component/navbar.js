@@ -28,14 +28,16 @@ export const Navbar = ({ array, borrarFav }) => {
           </button>
           <ul className="dropdown-menu">
             <li>
+              {/* Muestra la cantidad de elementos, y el elemento mas el boton de borrar */}
               <a className="dropdown-item" href="#">
-              {`${
+              {
                 counter
-                  ? array.map(element => {
-                    element + <i className="fa-solid fa-trash ps-3" style={{ border: 0 }} onClick={borrarFav}></i>
-              })
+                ? printArray.map(element => {
+                  return(
+                    <ul>{element} <i className="fa-solid fa-trash ps-3" style={{ border: 0 }} onClick={borrarFav}></i></ul>)
+                  })
                   : "(Empty)"
-              }`}
+                }
               </a>
             </li>
           </ul>

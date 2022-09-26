@@ -1,7 +1,7 @@
 import React from "react";
 import { Navbar } from "./navbar";
 
-function Information(props) {
+function PlanetaInformacion(props) {
   return (
     <>
       <Navbar />
@@ -29,7 +29,7 @@ function Information(props) {
           <div className="row g-0">
             <div className="col-md-4">
               <img
-                src="https://picsum.photos/800/600?random=3"
+                src="https://picsum.photos/800/600?random=0"
                 className="img-fluid rounded-start p-3"
                 alt="picture of a character"
               />
@@ -56,21 +56,15 @@ function Information(props) {
           <thead>
             <tr className="text-danger">
               <th scope="col">Name</th>
-              <th scope="col">Birth Year</th>
-              <th scope="col">Gender</th>
-              <th scope="col">Height</th>
-              <th scope="col">Skin Color</th>
-              <th scope="col">Eye Color</th>
+              <th scope="col">Population</th>
+              <th scope="col">Terrain</th>
             </tr>
           </thead>
           <tbody>
             <tr className="text-danger">
               <td>{props.name}</td>
-              <td>{props.birthYear}</td>
-              <td>{props.gender}</td>
-              <td>{props.height}</td>
-              <td>{props.skinColor}</td>
-              <td>{props.eyeColor}</td>
+              <td>{props.population}</td>
+              <td>{props.terrain}</td>
             </tr>
           </tbody>
         </table>
@@ -79,4 +73,4 @@ function Information(props) {
   );
 }
 
-export default Information;
+export default PlanetaInformacion;

@@ -54,48 +54,44 @@ export const Home = () => {
 
   return (
     <>
-      <Navbar array={[]} borrarFav={eliminarFav} />
+      <Navbar array={[1, 2, 3, 4, 5]} borrarFav={eliminarFav} />
       <div className="container-fluid ms-5">
         <div className="text-left m-5">
           <h1 className="text-danger">Characters</h1>
         </div>
-        <div className="row" >
-          <div className="d-flex overflow-scroll">
-            {personajes.map((element, i) => {
-              return (
-                <CardCharacters
-                  id={element.uid}
-                  picture="https://picsum.photos/800/600?random=3"
-                  name={element.name}
-                  gender={element.gender}
-                  hairColor={element.hairColor}
-                  eyeColor={element.eyeColor}
-                  agregarFavorito={agregarFav}
-                  key={i}
-                />
-              );
-            })}
-          </div>
+        <div className="d-flex overflow-scroll">
+          {personajes.map((element, i) => {
+            return (
+              <CardCharacters
+                id={element.uid}
+                picture="https://picsum.photos/800/600?random=3"
+                name={element.name}
+                gender={element.gender}
+                hairColor={element.hairColor}
+                eyeColor={element.eyeColor}
+                agregarFavorito={agregarFav}
+                key={i}
+              />
+            );
+          })}
         </div>
         <div className="text-left m-5">
           <h1 className="text-danger">Planets</h1>
         </div>
-        <div className="row row-cols-1 row-cols-md-2 g-1">
-          <div className="col">
-            {planetas.map((element, i) => {
-              return (
-                <CardPlanets
-                  id={element.uid}
-                  picturePla="https://picsum.photos/800/600?random=5"
-                  name={element.name}
-                  population={element.population}
-                  terrain={element.terrain}
-                  agregarFavorito={agregarFav}
-                  key={i}
-                />
-              );
-            })}
-          </div>
+        <div className="d-flex overflow-scroll">
+          {planetas.map((element, i) => {
+            return (
+              <CardPlanets
+                id={element.uid}
+                picturePla="https://picsum.photos/800/600?random=5"
+                name={element.name}
+                population={element.population}
+                terrain={element.terrain}
+                agregarFavorito={agregarFav}
+                key={i}
+              />
+            );
+          })}
         </div>
       </div>
     </>
