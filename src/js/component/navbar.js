@@ -31,7 +31,7 @@ export const Navbar = ({ array, borrarFav }) => {
               <a className="dropdown-item" href="#">
               {`${
                 counter
-                  ? array.forEach(element => {
+                  ? array.map(element => {
                     element + <i className="fa-solid fa-trash ps-3" style={{ border: 0 }} onClick={borrarFav}></i>
               })
                   : "(Empty)"

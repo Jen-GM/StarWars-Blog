@@ -20,7 +20,7 @@ export const Home = () => {
       .catch((err) => console.error(err));
   };
 
-  //Funcion para obtener los 10 objetos de personaje.
+  //Funcion para obtener los 10 objetos de planetas.
   const getPlanets = () => {
     //Pasar esto para cards
     fetch("https://www.swapi.tech/api/planets/")
@@ -41,7 +41,7 @@ export const Home = () => {
   /* Funciones generales: Navbar:ver favoritos**, eliminar favoritos**, Card: redireccionar, agregar favoritos**, Information: regresar.  */
 
   const agregarFav = () => {
-    setFavoritos(); //objeto.name
+    personajes.map((element, i) => setFavoritos(element.name)); //objeto.name
   };
 
   const eliminarFav = () => {
@@ -59,13 +59,13 @@ export const Home = () => {
         <div className="text-left m-5">
           <h1 className="text-danger">Characters</h1>
         </div>
-        <div className="row row-cols-1 row-cols-md-6 g-4 overflow-auto">
-          <div className="col">
+        <div className="row" >
+          <div className="d-flex overflow-scroll">
             {personajes.map((element, i) => {
               return (
                 <CardCharacters
                   id={element.uid}
-                  picture=""
+                  picture="https://picsum.photos/800/600?random=3"
                   name={element.name}
                   gender={element.gender}
                   hairColor={element.hairColor}
@@ -75,19 +75,18 @@ export const Home = () => {
                 />
               );
             })}
-            ;
           </div>
         </div>
         <div className="text-left m-5">
           <h1 className="text-danger">Planets</h1>
         </div>
-        <div className="row row-cols-1 row-cols-md-6 g-4">
+        <div className="row row-cols-1 row-cols-md-2 g-1">
           <div className="col">
             {planetas.map((element, i) => {
               return (
                 <CardPlanets
                   id={element.uid}
-                  picturePla=""
+                  picturePla="https://picsum.photos/800/600?random=5"
                   name={element.name}
                   population={element.population}
                   terrain={element.terrain}
@@ -96,7 +95,6 @@ export const Home = () => {
                 />
               );
             })}
-            ;
           </div>
         </div>
       </div>
