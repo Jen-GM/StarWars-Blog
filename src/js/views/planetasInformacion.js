@@ -11,7 +11,6 @@ function PlanetasInformacion() {
       actions.verMasPlanetas(params?.theid);
     }
   }, [params?.theid]); //Se ejecuta SOLO cuando se obtiene el theid
-  console.log(store.infoPlanetas);
 
   return (
     <>

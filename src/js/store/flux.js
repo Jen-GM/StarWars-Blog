@@ -15,7 +15,6 @@ const getState = ({ getStore, getActions, setStore }) => {
       ],
       planetas: [],
       personajes: [],
-      infoAdicionalPlanetas: [],
       infoPersonajes: [],
       infoPlanetas: [],
       favoritos: [],
@@ -25,20 +24,20 @@ const getState = ({ getStore, getActions, setStore }) => {
       agregarFav: (item) => {
         let aux = getStore().favoritos;
         aux.push(item);
-        setStore({favoritos:aux})
+        setStore({ favoritos: aux });
       },
 
       removerFav: (index) => {
         let aux = getStore().favoritos;
-        let x = aux.filter((element, i) => i != index) 
-        setStore({favoritos:x})
+        let x = aux.filter((element, i) => i != index);
+        setStore({ favoritos: x });
       },
 
       verMasPersonaje: (id) => {
         fetch("https://www.swapi.tech/api/people/" + id)
           .then((res) => res.json())
           .then((data) => {
-            setStore({infoPersonajes:data.result.properties});
+            setStore({ infoPersonajes: data.result.properties });
           })
           .catch((err) => console.error(err));
       },
@@ -47,7 +46,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         fetch("https://www.swapi.tech/api/planets/" + id)
           .then((res) => res.json())
           .then((data) => {
-            setStore({infoPlanetas:data.result.properties});
+            setStore({ infoPlanetas: data.result.properties });
           })
           .catch((err) => console.error(err));
       },
@@ -56,14 +55,14 @@ const getState = ({ getStore, getActions, setStore }) => {
         fetch("https://www.swapi.tech/api/people/")
           .then((res) => res.json())
           .then((data) => {
-            setStore({personajes:data.results});
+            setStore({ personajes: data.results });
           })
           .catch((err) => console.error(err));
 
         fetch("https://www.swapi.tech/api/planets/")
           .then((res) => res.json())
           .then((data) => {
-            setStore({planetas:data.results});
+            setStore({ planetas: data.results });
           })
           .catch((err) => console.error(err));
       },

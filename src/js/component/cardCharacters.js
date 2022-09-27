@@ -12,7 +12,7 @@ function CardCharacters({
   
 
   return (
-    <div className="container-fluid px-5">
+    <div className="card m-3 col-3">
       <img
         src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}
         className="card-img-top"
@@ -21,12 +21,6 @@ function CardCharacters({
         <h4 className="card-title">
           <strong>{name}</strong>
         </h4>
-        <p className="card-gender">
-          Gender: {gender}
-          <br />
-          Hair Color: {hairColor} <br />
-          Eye-Color: {eyeColor}
-        </p>
         <div className="two-buttons d-flex justify-content-between">
           <a
             href={`/characters/${id}`}

@@ -5,15 +5,16 @@ import { useParams } from "react-router-dom";
 function CardPlanets({ id, name }) {
   const { store, actions } = useContext(Context);
   const params = useParams();
+  
 
   useEffect(() => {
     actions.verMasPlanetas(id);
   }, []);
-  console.log(store.infoPlanetas.population);
-  console.log(store.infoPlanetas);
+
+ console.log(store.infoPlanetas);
 
   return (
-    <div className="container-fluid px-5">
+    <div className="card m-3 col-3">
       <img
         src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}
         className="card-img-top"
@@ -22,12 +23,6 @@ function CardPlanets({ id, name }) {
         <h4 className="card-title">
           <strong>{name}</strong>
         </h4>
-        <p className="card-gender">
-          {store.planetas.map((element, i) => {
-            return `Population: ${element.population} <br/>
-          Terrain: ${element.terrain} `;
-          })}
-        </p>
         <div className="two-buttons d-flex justify-content-between">
           <a href={`/planets/${id}`} className="btn btn-outline-primary fs-5">
             Learn more!

@@ -11,7 +11,6 @@ function PersonajeInformacion() {
       actions.verMasPersonaje(params?.theid);
     }
   }, [params?.theid]); //Se ejecuta SOLO cuando se obtiene el theid
-  console.log(store.infoPersonajes);
 
   return (
     <>
