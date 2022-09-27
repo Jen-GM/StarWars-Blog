@@ -1,6 +1,18 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { Context } from "../store/appContext";
 
-function PersonajeInformacion(props) {
+function PersonajeInformacion() {
+  const { store, actions } = useContext(Context);
+  const params = useParams();
+
+  useEffect(() => {
+    if (params?.theid) {
+      actions.verMasPersonaje(params?.theid);
+    }
+  }, [params?.theid]); //Se ejecuta SOLO cuando se obtiene el theid
+  console.log(store.infoPersonajes);
+
   return (
     <>
       {/* Container de toda la informacion del personaje */}
@@ -19,7 +31,7 @@ function PersonajeInformacion(props) {
           <div className="row g-0">
             <div className="col-md-4">
               <img
-                src="https://picsum.photos/800/600?random=3"
+                src={`https://starwars-visualguide.com/assets/img/characters/${params?.theid}.jpg`}
                 className="img-fluid rounded-start p-3"
                 alt="picture of a character"
               />
@@ -27,7 +39,7 @@ function PersonajeInformacion(props) {
             <div className="col-md-8">
               <div className="card-body">
                 <h3 className="card-title text-center p-3">
-                  <strong>{props.name}</strong>
+                  <strong>{store?.infoPersonajes?.name}</strong>
                 </h3>
                 <p className="card-text text-center">
                   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
@@ -55,12 +67,12 @@ function PersonajeInformacion(props) {
           </thead>
           <tbody>
             <tr className="text-danger">
-              <td>{props.name}</td>
-              <td>{props.birthYear}</td>
-              <td>{props.gender}</td>
-              <td>{props.height}</td>
-              <td>{props.skinColor}</td>
-              <td>{props.eyeColor}</td>
+              <td>{store.infoPersonajes?.name}</td>
+              <td>{store.infoPersonajes?.birth_year}</td>
+              <td>{store.infoPersonajes?.gender}</td>
+              <td>{store.infoPersonajes?.height}</td>
+              <td>{store.infoPersonajes?.skin_color}</td>
+              <td>{store.infoPersonajes?.eye_color}</td>
             </tr>
           </tbody>
         </table>

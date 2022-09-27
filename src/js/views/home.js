@@ -1,33 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
-import { Navbar } from "../component/navbar";
 import CardCharacters from "../component/cardCharacters";
 import CardPlanets from "../component/cardPlanets";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
-  const [favoritos, setFavoritos] = useState([]);
-  let arrPrueba = [1, 2, 3, 4, 5];
-
-
-
-
-  /* Funciones generales: Navbar:ver favoritos**, eliminar favoritos**, Card: redireccionar, agregar favoritos**, Information: regresar.  */
-
-  const agregarPersFav = () => {
-    personajes.map((element, i) => setFavoritos([...favoritos, element.name])); //objeto.name
-  };
-  const agregarPlanFav = () => {
-    planetas.map((element, i) => setFavoritos([...favoritos, element.name])); //objeto.name
-  };
-
-  const eliminarFav = (i) => {
-    let arrayFinal = favoritos.filter((element, indice) => indice !== i);
-    setFavoritos(arrayFinal);
-    console.log(arrayFinal);
-  };
-
 
   return (
     <>
@@ -45,9 +23,7 @@ export const Home = () => {
                 gender={element.gender}
                 hairColor={element.hairColor}
                 eyeColor={element.eyeColor}
-                agregarFavorito={agregarPersFav}
                 key={i}
-                type="characters"
               />
             );
           })}
@@ -64,9 +40,7 @@ export const Home = () => {
                 name={element.name}
                 population={element.population}
                 terrain={element.terrain}
-                agregarFavorito={agregarPlanFav}
                 key={i}
-                type="planets"
               />
             );
           })}
