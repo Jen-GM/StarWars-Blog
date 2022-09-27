@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import icono from "../pictures/starwarsIcon.png";
 
-export const Navbar = ({ array, borrarFav }) => {
-  let counter = array.length;
-  const printArray = array;
+export const Navbar = ({ array, borrarFav, resultado }) => {
+  const [arrayPantalla, setArrayPantalla] = useState([array]);
+  let counter = arrayPantalla.length;
 
-  console.log(printArray);
 
   return (
     <nav className="navbar navbar-light bg-light mb-4">
@@ -32,9 +31,12 @@ export const Navbar = ({ array, borrarFav }) => {
               <a className="dropdown-item" href="#">
               {
                 counter
-                ? printArray.map(element => {
+                ? arrayPantalla.map((element, i) => {
                   return(
-                    <ul>{element} <i className="fa-solid fa-trash ps-3" style={{ border: 0 }} onClick={borrarFav}></i></ul>)
+                    <ul>{element} <i className="fa-solid fa-trash ps-3" style={{ border: 0 }} onClick={() => {
+                      borrarFav(i)
+                      setArrayPantalla(resultado)
+                    }}></i></ul>)
                   })
                   : "(Empty)"
                 }
