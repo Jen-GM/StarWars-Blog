@@ -4,6 +4,7 @@ import "../../styles/home.css";
 import CardCharacters from "../component/cardCharacters";
 import CardPlanets from "../component/cardPlanets";
 
+
 export const Home = () => {
   const { store, actions } = useContext(Context);
 
@@ -18,7 +19,6 @@ export const Home = () => {
             return (
               <CardCharacters
                 id={element.uid}
-                picture="https://picsum.photos/800/600?random=3"
                 name={element.name}
                 gender={element.gender}
                 hairColor={element.hairColor}
@@ -36,10 +36,7 @@ export const Home = () => {
             return (
               <CardPlanets
                 id={element.uid}
-                picturePla="https://picsum.photos/800/600?random=5"
                 name={element.name}
-                population={element.population}
-                terrain={element.terrain}
                 key={i}
               />
             );

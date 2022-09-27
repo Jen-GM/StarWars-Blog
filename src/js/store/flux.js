@@ -15,6 +15,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       ],
       planetas: [],
       personajes: [],
+      infoAdicionalPlanetas: [],
       infoPersonajes: [],
       infoPlanetas: [],
       favoritos: [],
@@ -51,9 +52,6 @@ const getState = ({ getStore, getActions, setStore }) => {
           .catch((err) => console.error(err));
       },
 
-      exampleFunction: () => {
-        getActions().changeColor(0, "green");
-      },
       loadSomeData: () => {
         fetch("https://www.swapi.tech/api/people/")
           .then((res) => res.json())

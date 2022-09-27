@@ -10,7 +10,6 @@ function CardCharacters({
 }) {
   const { store, actions } = useContext(Context);
   
-  console.log(store.infoPersonajes);
 
   return (
     <div className="container-fluid px-5">
@@ -23,7 +22,7 @@ function CardCharacters({
           <strong>{name}</strong>
         </h4>
         <p className="card-gender">
-          Gender: {store.infoPersonajes.gender}
+          Gender: {gender}
           <br />
           Hair Color: {hairColor} <br />
           Eye-Color: {eyeColor}

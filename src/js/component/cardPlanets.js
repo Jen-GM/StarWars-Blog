@@ -1,10 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
+import { useParams } from "react-router-dom";
 
-function CardPlanets({ id, name, population, terrain }) {
+function CardPlanets({ id, name }) {
   const { store, actions } = useContext(Context);
+  const params = useParams();
 
-  console.log(store.favoritos);
+  useEffect(() => {
+    actions.verMasPlanetas(id);
+  }, []);
+  console.log(store.infoPlanetas.population);
+  console.log(store.infoPlanetas);
 
   return (
     <div className="container-fluid px-5">
@@ -17,8 +23,10 @@ function CardPlanets({ id, name, population, terrain }) {
           <strong>{name}</strong>
         </h4>
         <p className="card-gender">
-          Population: {store.population} <br />
-          Terrain: {terrain}
+          {store.planetas.map((element, i) => {
+            return `Population: ${element.population} <br/>
+          Terrain: ${element.terrain} `;
+          })}
         </p>
         <div className="two-buttons d-flex justify-content-between">
           <a href={`/planets/${id}`} className="btn btn-outline-primary fs-5">
