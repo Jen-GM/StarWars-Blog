@@ -12,13 +12,13 @@ function CardCharacters({
   
 
   return (
-    <div className="card m-3 col-3">
+    <div className="card m-3 col-2">
       <img
         src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}
         className="card-img-top"
       />
       <div className="card-body">
-        <h4 className="card-title">
+        <h4 className="card-title text-center">
           <strong>{name}</strong>
         </h4>
         <div className="two-buttons d-flex justify-content-between">
