@@ -52,17 +52,17 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
 
       loadSomeData: () => {
-        fetch("https://www.swapi.tech/api/people/")
+        fetch(process.env.BACKEND_URL + "/character")
           .then((res) => res.json())
           .then((data) => {
-            setStore({ personajes: data.results });
+            setStore({ personajes: data.character });
           })
           .catch((err) => console.error(err));
 
-        fetch("https://www.swapi.tech/api/planets/")
+        fetch(process.env.BACKEND_URL + "/planet")
           .then((res) => res.json())
           .then((data) => {
-            setStore({ planetas: data.results });
+            setStore({ planetas: data.planet });
           })
           .catch((err) => console.error(err));
       },
