@@ -18,6 +18,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       infoPersonajes: [],
       infoPlanetas: [],
       favoritos: [],
+      token:"",
     },
     actions: {
       // Use getActions to call a function within a fuction
@@ -97,6 +98,38 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.error("Error al cargar", error);
         }
       },
+
+      //token actions to get it through the backend
+     /*  login: async (email, password) => { */
+        /*  Metodo para enviar el email y password ingresados por el usuario */
+        /* const results = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: email,
+            password: password,
+          }),
+        }; */
+        /* Trae la informacion del backend por medio del fetch */
+        /* try {
+          const resp = await fetch(process.env.BACKEND_URL + "/token", results)
+          if (resp.status !== 200) {
+            alert("Error al cargar");
+            return false;
+          }
+
+          const data = await resp.json();
+          console.log("Result from the backend", data);
+          sessionStorage.setItem("token", data.access_token);
+          setStore({ token: data.access_token });
+          return true;
+
+        } catch (error) {
+          console.error("Error al cargar", error);
+        }
+      }, */
 
       changeColor: (index, color) => {
         //get the store
