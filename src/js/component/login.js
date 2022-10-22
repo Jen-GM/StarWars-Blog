@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+/* import { useNavigate } from "react-router-dom"; */
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
 
@@ -7,13 +7,13 @@ export const Login = () => {
   const { store, actions } = useContext(Context);
   const [ username, setUsername ] = useState("");
   const [ password, setPassword ]  = useState("");
-  const navigate = useNavigate();
-
+ /*  const navigate = useNavigate();
+ */
   const handleClick = () => {
     actions.login(username, password);
   };
   
-  if(store.token && store.token != "" && store.token != undefined) navigate("/");
+/*   if(store.token && store.token != "" && store.token != undefined) navigate("/"); */
 
 /* Crea el form para que user ingrese los datos y se asegura de que user se haya logueado solo 1 vez. */
   return (
