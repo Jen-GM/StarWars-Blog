@@ -67,8 +67,15 @@ const getState = ({ getStore, getActions, setStore }) => {
           })
           .catch((err) => console.error(err));
       },
+
+       //Getting the token from the session store
+       setTokenFromSessionStore: () => {
+        const token = sessionStorage.getItem("token");
+        if(token && token != "" && token != undefined) setStore({ token: token })
+      },
+
       //token actions to get it through the backend
-      login: async (email, password) => {
+      login: async (username, password) => {
         /*  Metodo para enviar el email y password ingresados por el usuario */
         const results = {
           method: "POST",
@@ -76,7 +83,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            email: email,
+            username: username,
             password: password,
           }),
         };
@@ -99,37 +106,10 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
       },
 
-      //token actions to get it through the backend
-     /*  login: async (email, password) => { */
-        /*  Metodo para enviar el email y password ingresados por el usuario */
-        /* const results = {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: email,
-            password: password,
-          }),
-        }; */
-        /* Trae la informacion del backend por medio del fetch */
-        /* try {
-          const resp = await fetch(process.env.BACKEND_URL + "/token", results)
-          if (resp.status !== 200) {
-            alert("Error al cargar");
-            return false;
-          }
-
-          const data = await resp.json();
-          console.log("Result from the backend", data);
-          sessionStorage.setItem("token", data.access_token);
-          setStore({ token: data.access_token });
-          return true;
-
-        } catch (error) {
-          console.error("Error al cargar", error);
-        }
-      }, */
+      logout: () => {
+        const token = sessionStorage.removeItem("token");
+        setStore({ token: null })
+      },
 
       changeColor: (index, color) => {
         //get the store

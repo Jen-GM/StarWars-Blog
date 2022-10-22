@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 export const Navbar = () => {
   const { store, actions } = useContext(Context);
 
-
   /*  let counter = arrayPantalla.length; */
 
   return (
@@ -17,7 +16,7 @@ export const Navbar = () => {
         </Link>
       </div>
       {/* Boton de dropdown */}
-      <div className="dropdown me-2 pe-5">
+      <div className="dropdown me-2 pe-3">
         <div className="dropdown pe-2">
           <button
             className="btn btn-primary dropdown-toggle"
@@ -47,6 +46,22 @@ export const Navbar = () => {
               : "(Empty)"}
           </ul>
         </div>
+      </div>
+      <div className="ml-auto pe-3">
+        {!store.token ? (
+          <Link to="/login">
+            <button className="btn btn-primary">Log in</button>
+          </Link>
+        ) : (
+          <Link to="/">
+            <button
+              onClick={() => actions.logout()}
+              className="btn btn-primary"
+            >
+              Log out
+            </button>
+          </Link>
+        )}
       </div>
     </nav>
   );

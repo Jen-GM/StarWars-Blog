@@ -3,8 +3,7 @@ import { Context } from "../store/appContext";
 
 function CardCharacters({
   id,
-  name,
-  img_URL_character
+  name
 }) {
   const { store, actions } = useContext(Context);
   
@@ -13,7 +12,7 @@ function CardCharacters({
   return (
     <div className="card m-3 col-2">
       <img
-        src={img_URL_character}
+        src={store.personajes.img_URL_character}
         className="card-img-top"
       />
       <div className="card-body">
