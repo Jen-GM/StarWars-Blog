@@ -4,17 +4,16 @@ import { Context } from "../store/appContext";
 function CardCharacters({
   id,
   name,
-  gender,
-  hairColor,
-  eyeColor
+  img_URL_character
 }) {
   const { store, actions } = useContext(Context);
   
 
+
   return (
     <div className="card m-3 col-2">
       <img
-        src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}
+        src={img_URL_character}
         className="card-img-top"
       />
       <div className="card-body">

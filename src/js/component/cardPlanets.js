@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import { useParams } from "react-router-dom";
 
-function CardPlanets({ id, name }) {
+function CardPlanets({ id, name, img_URL_planet }) {
   const { store, actions } = useContext(Context);
   const params = useParams();
   
@@ -11,12 +11,12 @@ function CardPlanets({ id, name }) {
     actions.verMasPlanetas(id);
   }, []);
 
- console.log(store.infoPlanetas);
+ console.log(name);
 
   return (
     <div className="card m-3 col-2">
       <img
-        src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}
+        src={img_URL_planet}
         className="card-img-top"
       />
       <div className="card-body">

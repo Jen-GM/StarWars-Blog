@@ -6,12 +6,11 @@ function PersonajeInformacion() {
   const { store, actions } = useContext(Context);
   const params = useParams();
 
-  useEffect(() => {
+ /*  useEffect(() => {
     if (params?.theid) {
       actions.verMasPersonaje(params?.theid);
     }
-  }, [params?.theid]); //Se ejecuta SOLO cuando se obtiene el theid
-
+  }, [params?.theid]); //Se ejecuta SOLO cuando se obtiene el theid */
   return (
     <>
       {/* Container de toda la informacion del personaje */}
@@ -30,7 +29,7 @@ function PersonajeInformacion() {
           <div className="row g-0">
             <div className="col-md-4">
               <img
-                src={`https://starwars-visualguide.com/assets/img/characters/${params?.theid}.jpg`}
+                src={store.infoPersonajes.img_URL_character}
                 className="img-fluid rounded-start p-3"
                 alt="picture of a character"
               />
