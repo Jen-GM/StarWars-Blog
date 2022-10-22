@@ -13,6 +13,7 @@ function CardPlanets({ id, name, img_URL_planet }) {
 
  console.log(name);
 
+
   return (
     <div className="card m-3 col-2">
       <img

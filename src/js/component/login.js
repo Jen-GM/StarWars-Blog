@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
 
@@ -19,6 +19,11 @@ if(store.token && store.token != "" && store.token != undefined) history.push("/
   return (
     <div className="text-center mt-5">
       <h1>Login Page</h1>
+      <Link to="/signup">
+				<span className="btn btn-primary btn-lg" href="#" role="button">
+					Signup
+				</span>
+			</Link>
       {store.token && store.token != "" && store.token != undefined ? ("Ya se ha loggueado correctamente") : (
         <div>
           <input

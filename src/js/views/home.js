@@ -18,7 +18,8 @@ export const Home = () => {
           {store.personajes.map((element, i) => {
             return (
               <CardCharacters
-                id={element.uid}
+                id={element.id}
+                img_URL_character={element.img_URL_character}
                 name={element.name}
                 gender={element.gender}
                 hairColor={element.hairColor}
@@ -35,8 +36,9 @@ export const Home = () => {
           {store.planetas.map((element, i) => {
             return (
               <CardPlanets
-                id={element.uid}
+                id={element.id}
                 name={element.name}
+                img_URL_planet={element.img_URL_planet}
                 key={i}
               />
             );

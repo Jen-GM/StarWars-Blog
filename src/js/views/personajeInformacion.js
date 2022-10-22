@@ -6,11 +6,12 @@ function PersonajeInformacion() {
   const { store, actions } = useContext(Context);
   const params = useParams();
 
- /*  useEffect(() => {
+  useEffect(() => {
     if (params?.theid) {
       actions.verMasPersonaje(params?.theid);
     }
-  }, [params?.theid]); //Se ejecuta SOLO cuando se obtiene el theid */
+  }, [params?.theid]); //Se ejecuta SOLO cuando se obtiene el theid
+  
   return (
     <>
       {/* Container de toda la informacion del personaje */}
@@ -58,7 +59,6 @@ function PersonajeInformacion() {
               <th scope="col">Name</th>
               <th scope="col">Birth Year</th>
               <th scope="col">Gender</th>
-              <th scope="col">Height</th>
               <th scope="col">Skin Color</th>
               <th scope="col">Eye Color</th>
             </tr>
@@ -68,7 +68,6 @@ function PersonajeInformacion() {
               <td>{store.infoPersonajes?.name}</td>
               <td>{store.infoPersonajes?.birth_year}</td>
               <td>{store.infoPersonajes?.gender}</td>
-              <td>{store.infoPersonajes?.height}</td>
               <td>{store.infoPersonajes?.skin_color}</td>
               <td>{store.infoPersonajes?.eye_color}</td>
             </tr>

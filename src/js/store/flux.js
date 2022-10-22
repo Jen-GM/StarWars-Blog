@@ -38,7 +38,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         fetch(process.env.BACKEND_URL + "/character/" + id)
           .then((res) => res.json())
           .then((data) => {
-            setStore({ infoPersonajes: data.character });
+            setStore({ infoPersonajes: data.personaje });
           })
           .catch((err) => console.error(err));
       },
@@ -47,7 +47,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         fetch(process.env.BACKEND_URL + "/planet/" + id)
           .then((res) => res.json())
           .then((data) => {
-            setStore({ infoPlanetas: data.planet });
+            setStore({ infoPlanetas: data.planeta });
           })
           .catch((err) => console.error(err));
       },

@@ -30,7 +30,7 @@ function PlanetasInformacion() {
           <div className="row g-0">
             <div className="col-md-4">
               <img
-                src={`https://starwars-visualguide.com/assets/img/planets/${params?.theid}.jpg`}
+                src={store.infoPlanetas?.img_URL_planet}
                 className="img-fluid rounded-start p-3"
                 alt="picture of a character"
               />
